@@ -77,7 +77,7 @@ searchBtn.addEventListener('click', () => {
             let cityLon = data.coord.lon;
             console.log(cityLat);
             console.log(cityLon);
-            fetch(`http://api.openweathermap.org/data/2.5/onecall?lat=${cityLat}&lon=${cityLon}&units=imperial&appid=${apiKey}`)
+            fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${cityLat}&lon=${cityLon}&units=imperial&appid=${apiKey}`)
                 .then(response2 => {
                     return response2.json();
                 })
@@ -100,7 +100,7 @@ searchBtn.addEventListener('click', () => {
 initialize();
 
 function initialize() {
-    fetch(`http://api.openweathermap.org/data/2.5/onecall?lat=39.7392&lon=-104.9847&units=imperial&appid=${apiKey}`)
+    fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=39.7392&lon=-104.9847&units=imperial&appid=${apiKey}`)
         .then(response => {
             return response.json();
         })
