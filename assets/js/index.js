@@ -30,24 +30,54 @@
 // Following 5 days Date, Weather Icon, Temp, Wind, Humidity
 
 //Variables for Search Panel
-const searchBtn = document.getElementById('searchBtn')
-const searchInput = document.getElementById()
-const prevSearch1 = document.getElementById()
+const searchBtn = document.getElementById('searchBtn');
+// const searchInput = document.getElementById('searchBar').value;
+// const prevSearch1 = document.getElementById()
 //Variables for Current temp
-const currentTemp = document.getElementById('temp0')
-const currentWind = document.getElementById('wind0')
-const currentHumid = document.getElementById('humid0')
-const currentUV = document.getElementById('uv')
+const currentDay = document.getElementById('currentDay');
+const searchedCity = document.getElementById('searchedcity');
+const currentTemp = document.getElementById('temp0');
+const currentWind = document.getElementById('wind0');
+const currentHumid = document.getElementById('humid0');
+const currentUV = document.getElementById('uv');
 //Variables for 5 day forecast
-const temp1 = document.getElementById('temp1')
-const wind1 = document.getElementById('wind1')
-const humid1 = document.getElementById('humid1')
-const icon1 = document.getElementById('icon1')
-const date1 = document.getElementById('date1')
+const temp1 = document.getElementById('temp1');
+const wind1 = document.getElementById('wind1');
+const humid1 = document.getElementById('humid1');
+const icon1 = document.getElementById('icon1');
+const date1 = document.getElementById('date1');
+
+const apiKey = '88ec2fe22393b0487b39e1ed6a862feb'
+
+const today = new Date();
 
 
 
 searchBtn.addEventListener('click', () => {
-    alert();
+    const searchInput = document.getElementById('searchBar').value;
+    console.log(searchInput);
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${searchInput}&appid=${apiKey}`)
+        .then(response => {
+            return response.json();
+        })
+        .then(data => {
+            let cityLat = data.coord.lat;
+            let cityLon = data.coord.lon;
+            console.log(cityLat);
+            console.log(cityLon)
+            fetch(`http://api.openweathermap.org/data/2.5/onecall?lat=${cityLat}&lon=${cityLon}&units=imperial&appid=${apiKey}`)
+                .then(response2 => {
+                    return response2.json();
+                })
+                .then(data2 => {
+                    console.log(data2);
+                })
+        })
 });
+
+initialize();
+
+function initialize() {
+
+}
 
