@@ -24,6 +24,30 @@
 
 //pull lat and long from above api call and insert them into 
 
-//
+//Information I need from the API:
+// City Name
+// Current Temp, Wind, Humidity, UV Index
+// Following 5 days Date, Weather Icon, Temp, Wind, Humidity
 
+//Variables for Search Panel
+const searchBtn = document.getElementById('searchBtn')
+const searchInput = document.getElementById()
+const prevSearch1 = document.getElementById()
+//Variables for Current temp
+const currentTemp = document.getElementById('temp0')
+const currentWind = document.getElementById('wind0')
+const currentHumid = document.getElementById('humid0')
+const currentUV = document.getElementById('uv')
+//Variables for 5 day forecast
+const temp1 = document.getElementById('temp1')
+const wind1 = document.getElementById('wind1')
+const humid1 = document.getElementById('humid1')
+const icon1 = document.getElementById('icon1')
+const date1 = document.getElementById('date1')
+
+
+
+searchBtn.addEventListener('click', () => {
+    alert();
+});
 

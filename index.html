@@ -27,34 +27,42 @@
 
             <h2>Search for a City:</h2>
             <input type="text" class="text">
-            <button type="button" class="btn btn-primary mt-2 mb-3">Search</button>
+            <button type="button" class="btn btn-primary mt-2 mb-3" id="searchBtn">Search</button>
             <div class="row border-top border-dark mt-2">History</div>
         </div>
 
     <!-- column for the weather data -->
         <div class="col-8 d-flex flex-column">
+            <!-- Row for current weather -->
+
             <div class="row">
                 <section class="border-dark border">
-                <h3>City (Date)</h3>
-                <ul>
-                <li>Temperature: </li>
+                <h3 id="City">City (Date)</h3>
                 <br>
-                <li>Wind: </li>
-                <br>
-                <li>Humidity: </li>
-                <br>
-                <li>UV Index: </li>
-                <br>
-                </ul>
+                <p>Temperature: <span id="temp0"></span>° F</p>
+                <p>Wind: <span id="wind0"></span> MPH</p>
+                <p>Humidity: <span id="humid0"></span> %</p>
+                <p>UV Index: <span id="uv"></span></p>
                 </section>
             </div>
+            
+            <!-- Row for 5-day Forecast -->
             <div class="row">
                 <h3>5-Day Forecast</h3>
+                <div class="col p-3 m-2 rounded text-white bg-dark">
+                    <h5 id="date1">(Date)</h5>
+                    <p id="#icon1">Icon</p>
+                    <p>Temp: <span id="#temp1"></span>° F</p>
+                    <p>Wind: <span id="wind1"></span> MPH</p>
+                    <p>Humidity: <span id="humid1"></span> %</p>
+                </div>
             </div>
         </div>
 
 
     </div>
 </div>
+
+<script src="./assets/js/index.js"></script>
 </body>
 </html>
