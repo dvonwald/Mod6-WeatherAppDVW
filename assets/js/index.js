@@ -51,6 +51,7 @@ const apiKey = '88ec2fe22393b0487b39e1ed6a862feb'
 
 const today = new Date();
 
+var storedSearches = [];
 
 
 searchBtn.addEventListener('click', () => {
@@ -61,16 +62,35 @@ searchBtn.addEventListener('click', () => {
             return response.json();
         })
         .then(data => {
+            searchedCity.textContent = searchInput.toUpperCase()
+            storeCity(searchInput);
+            // localStorage.setItem('recentSearch', JSON.stringify(storedSearches))
             let cityLat = data.coord.lat;
             let cityLon = data.coord.lon;
             console.log(cityLat);
-            console.log(cityLon)
+            console.log(cityLon);
             fetch(`http://api.openweathermap.org/data/2.5/onecall?lat=${cityLat}&lon=${cityLon}&units=imperial&appid=${apiKey}`)
                 .then(response2 => {
                     return response2.json();
                 })
                 .then(data2 => {
                     console.log(data2);
+                    console.log(data2.current.temp);
+                    console.log(data2.current.wind_speed);
+                    console.log(data2.current.humidity);
+                    console.log(data2.current.uvi);
+                    currentTemp.textContent = data2.current.temp;
+                    currentWind.textContent = data2.current.wind_speed;
+                    currentHumid.textContent = data2.current.humidity;
+                    currentUV.textContent = data2.current.humidity;
+                    console.log(data2.daily[1].dew_point)
+                    // console.log()
+                    let dailyArray = data2.daily
+                    for (let i = 0; i < dailyArray.length; i++) {
+                        const element = array[i];
+                        
+                        
+                    }
                 })
         })
 });
@@ -78,6 +98,40 @@ searchBtn.addEventListener('click', () => {
 initialize();
 
 function initialize() {
+    fetch(`http://api.openweathermap.org/data/2.5/onecall?lat=39.7392&lon=-104.9847&units=imperial&appid=${apiKey}`)
+        .then(response => {
+            return response.json();
+        })
+        .then(data => {
+            console.log(data)
+            currentTemp.textContent = data.current.temp;
+            currentWind.textContent = data.current.wind_speed;
+            currentHumid.textContent = data.current.humidity;
+            currentUV.textContent = data.current.humidity;
+        })
+}
+
+// Append current weather data
+function appendCurrent () {
+    currentTemp.textContent = data2.current.temp;
+    currentWind.textContent = data2.current.wind_speed;
+    currentHumid.textContent = data2.current.humidity;
+    currentUV.textContent = data2.current.humidity;
+}
+
+//Append 5-Day Forecast
+function appendFiveDay () {
 
 }
 
+
+//put searched city in localstorage
+function storeCity(searchInput) {
+    storedSearches.push(searchInput);
+    localStorage.setItem('recentSearch', JSON.stringify(storedSearches));
+}
+
+//render past search buttons
+function renderHistory() {
+    
+}
