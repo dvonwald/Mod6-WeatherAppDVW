@@ -33,6 +33,7 @@
 const searchBtn = document.getElementById('searchBtn');
 // const searchInput = document.getElementById('searchBar').value;
 // const prevSearch1 = document.getElementById()
+const historyBtns = document.getElementById('historyButtons')
 //Variables for Current temp
 const currentDay = document.getElementById('currentDay');
 const searchedCity = document.getElementById('searchedcity');
@@ -46,6 +47,13 @@ const wind1 = document.getElementById('wind1');
 const humid1 = document.getElementById('humid1');
 const icon1 = document.getElementById('icon1');
 const date1 = document.getElementById('date1');
+
+// const fiveTemps = document.querySelectorAll('#temp1', '#temp2', '#temp3', '#temp4', '#temp5');
+// console.log(fiveTemps)
+// fiveTemps.forEach(append)
+// function append () { 
+//     textContent = 
+// };
 
 const apiKey = '88ec2fe22393b0487b39e1ed6a862feb'
 
@@ -85,12 +93,6 @@ searchBtn.addEventListener('click', () => {
                     currentUV.textContent = data2.current.humidity;
                     console.log(data2.daily[1].dew_point)
                     // console.log()
-                    let dailyArray = data2.daily
-                    for (let i = 0; i < dailyArray.length; i++) {
-                        const element = array[i];
-                        
-                        
-                    }
                 })
         })
 });
@@ -132,6 +134,12 @@ function storeCity(searchInput) {
 }
 
 //render past search buttons
-function renderHistory() {
-    
-}
+// function renderHistory() {
+//     JSON.parse(localStorage.getItem('recentSearch'));
+//     console.log(localStorage.getItem('recentSearch'))
+//     var recentArray = localStorage.getItem('recentSearch')
+//     recentArray.forEach(element => {
+//         historyBtns.append()
+//     });
+// }
+// renderHistory();
